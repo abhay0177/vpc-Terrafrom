@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.22.0"
+    }
+  }
+}
+
 provider "aws" {
    region = "us-east-1"
 }
@@ -91,7 +100,7 @@ resource "aws_route_table" "example1" {
 
 
 #association of route table for public subnets
-resource "aws_route_table-association" "dev-public-1-a" {
+resource "aws_route_table_association" "dev-public-1-a" {
   subnet_id = aws_subnet.dev-public-1.id
   route_table_id = aws_route_table.example1.id
 }
